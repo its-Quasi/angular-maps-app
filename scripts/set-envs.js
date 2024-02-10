@@ -3,6 +3,8 @@ const { mkdirSync, writeFileSync } = require('fs')
 
 const path = './src/envs/environments.ts'
 
+// add all env variables here and use in envContent
+
 const VARS = {
   MAPBOX_KEY: process.env['MAPBOX_KEY']
 }
