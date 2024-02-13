@@ -13,7 +13,7 @@ export class FullScreenPageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
 
-      if(!this.containerMap) throw 'no';
+      if(!this.containerMap) throw 'map has been not initialized';
       console.log(this.containerMap)
 
       const map = new Map({
