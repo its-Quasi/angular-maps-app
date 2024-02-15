@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import {Map} from 'mapbox-gl';
+import {LngLat, Map} from 'mapbox-gl';
 
 
 
@@ -10,16 +10,18 @@ import {Map} from 'mapbox-gl';
 export class FullScreenPageComponent implements AfterViewInit {
 
   @ViewChild('map') containerMap? : ElementRef
+  map? : Map
+  lngLat : LngLat = new LngLat(-74.5, 40) 
 
   ngAfterViewInit(): void {
 
       if(!this.containerMap) throw 'map has been not initialized';
       console.log(this.containerMap)
 
-      const map = new Map({
+      this.map = new Map({
       container: this.containerMap?.nativeElement, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
-      center: [-74.5, 40], // starting position [lng, lat]
+      center: this.lngLat, // starting position [lng, lat]
       zoom: 9, // starting zoom
     });
 
